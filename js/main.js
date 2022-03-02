@@ -1,22 +1,65 @@
 "use strict";
 
-const array = [1, 2, 3, 4, 5, 6];
+let a = 5,
+	b = a;
 
-array.pop();
-array.push(10);
+const obj = {
+	a: 5,
+	b: 1
+};
 
-for(let i = 0; i < array.length; i++){
-	console.log(array[i]);
+
+
+function copy(mainObj){
+	let objCopy = { };
+	let key;
+	for(key in mainObj){
+		objCopy[key] = mainObj[key];
+	}
+
+	return objCopy;
 }
 
-for(let element of array){
-	console.log(element);
+const numbers = {
+	a: 2,
+	b: 5,
+	c: {
+		x: 7,
+		y: 8
+	}
+};
+
+const newNumbers = copy(numbers);
+
+newNumbers.a = 12;
+
+console.log(newNumbers);
+console.log(numbers);
+
+const video = ['youtube', 'vimeo'],
+	blogs = ['wordpress', 'livejournal'],
+	internet = [...video, ...blogs, 'telegram', 'linkedIn'];
+
+console.log(internet);
+
+function log(a, b, c){
+	console.log(a);
+	console.log(b);
+	console.log(c);
 }
 
-array.forEach(function(item, i, array){
-	console.log(`${i}: ${item} is inside of array ${array}.`);
-});
+const num = [2, 5, 7];
 
-const str = prompt("", "");
-const products = str.split(", ");
-console.log(products.join('; '));
+log(...num);
+
+const arr = ['a', 'b'];
+const newArray = [...arr];
+
+const q = {
+	one: 1,
+	two: 2
+};
+
+const newQ = {
+	...q
+};
