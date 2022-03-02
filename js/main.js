@@ -1,65 +1,28 @@
 "use strict";
+ let str = "some";
+ //let strObj = new String(str); - do not use it
 
-let a = 5,
-	b = a;
+// console.log(typeof(str));
+//console.log(typeof(strObj));
 
-const obj = {
-	a: 5,
-	b: 1
-};
+//console.dir([1,2,3]);
 
-
-
-function copy(mainObj){
-	let objCopy = { };
-	let key;
-	for(key in mainObj){
-		objCopy[key] = mainObj[key];
-	}
-
-	return objCopy;
-}
-
-const numbers = {
-	a: 2,
-	b: 5,
-	c: {
-		x: 7,
-		y: 8
+const soldier = {
+	health: 400,
+	armor: 100,
+	sayHello: function(){
+		console.log('Hello');
 	}
 };
 
-const newNumbers = copy(numbers);
+//const john = {
+//	health: 100,
+//};
 
-newNumbers.a = 12;
+const john = Object.create(soldier);
 
-console.log(newNumbers);
-console.log(numbers);
+//john.__proto__ = soldier; -- do not use anymore
+Object.setPrototypeOf(john, soldier); //modern version
 
-const video = ['youtube', 'vimeo'],
-	blogs = ['wordpress', 'livejournal'],
-	internet = [...video, ...blogs, 'telegram', 'linkedIn'];
-
-console.log(internet);
-
-function log(a, b, c){
-	console.log(a);
-	console.log(b);
-	console.log(c);
-}
-
-const num = [2, 5, 7];
-
-log(...num);
-
-const arr = ['a', 'b'];
-const newArray = [...arr];
-
-const q = {
-	one: 1,
-	two: 2
-};
-
-const newQ = {
-	...q
-};
+//console.log(john.armor);
+john.sayHello();
