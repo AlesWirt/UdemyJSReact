@@ -1,33 +1,22 @@
 "use strict";
 
-const options = {
-	name: 'test',
-	width: 1024,
-	height: 1024,
-	colors: {
-		border: 'black',
-		bg: 'red'
-	},
-	makeTest: function(){
-		console.log('Test');
-	}
-};
+const array = [1, 2, 3, 4, 5, 6];
 
-options.makeTest();
+array.pop();
+array.push(10);
 
-const {border, bg} = options.colors;
-console.log(border);
-
-let counter = 0;
-for(let key in options){
-	if(typeof(options[key]) === 'object'){
-		for(let i in options[key]){
-			console.log(`Property ${i} is: ${options[key][i]}`);		
-		}
-	}
-	else{
-		console.log(`Property ${key} is: ${options[key]}`);
-	}
+for(let i = 0; i < array.length; i++){
+	console.log(array[i]);
 }
 
-console.log(Object.keys(options).length);
+for(let element of array){
+	console.log(element);
+}
+
+array.forEach(function(item, i, array){
+	console.log(`${i}: ${item} is inside of array ${array}.`);
+});
+
+const str = prompt("", "");
+const products = str.split(", ");
+console.log(products.join('; '));
