@@ -1,55 +1,33 @@
-let numberOfFilms;
-const personalMovieDB = {
-	count: numberOfFilms,
-	movies: {},
-	actors: {},
-	genres: [],
-	private: false
+"use strict";
+
+const options = {
+	name: 'test',
+	width: 1024,
+	height: 1024,
+	colors: {
+		border: 'black',
+		bg: 'red'
+	},
+	makeTest: function(){
+		console.log('Test');
+	}
 };
 
-function start(){
-	numberOfFilms = +prompt('How many movies did you watch?', '');
+options.makeTest();
 
-	while(numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)){
-		numberOfFilms = +prompt('How many movies did you watch?', '');
-	}
-}
+const {border, bg} = options.colors;
+console.log(border);
 
-function detectPersonalLevel(){
-	if(numberOfFilms < 10){
-		console.log('Too little movies.');
-	}
-	else if(numberOfFilms > 10 && numberOfFilms < 30){
-		console.log('Classic');
-	}
-	else if(numberOfFilms > 30){
-		console.log('You are cinemamiac');
+let counter = 0;
+for(let key in options){
+	if(typeof(options[key]) === 'object'){
+		for(let i in options[key]){
+			console.log(`Property ${i} is: ${options[key][i]}`);		
+		}
 	}
 	else{
-		alert('error');
+		console.log(`Property ${key} is: ${options[key]}`);
 	}
 }
 
-function writeYourGenres(){
-	let i = 1;
-	for(let i = 1; i <= 3; i++){
-		let answer = prompt(`What is your favorite genre number ${i}?`);
-			personalMovieDB.genres[i - 1] = answer;
-	}
-}
-
-function showMyDB(hidden){
-	if(!hidden){
-		console.log(personalMovieDB);
-	}
-}
-
-start();
-showMyDB(personalMovieDB.private);
-writeYourGenres();
-detectPersonalLevel();
-	
-
-
-
-console.log('End of the game.');
+console.log(Object.keys(options).length);
