@@ -1,77 +1,53 @@
 "use strict";
 
-const personalMovieDB = {
-	count: 0,
-	movies: {},
-	actors: {},
-	genres: [],
-	private: false,
+//To String
 
-	start: function(){
-		personalMovieDB.count = +prompt('How many movies did you watch?', '');
-	
-		while(personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)){
-			personalMovieDB.count = +prompt('How many movies did you watch?', '');
-		}
-	},
+//1)
+console.log(typeof(String(null)));
+console.log(typeof(String(4)));
 
-	rememberMyFilms: function(){
-		for(let i = 0; i < 2; i++){
-			const a = prompt('Latest film you watched?'),
-				b = prompt('How do yo rate it?');
-				if(a != null && b != null || a != '' && b != '' || a.length < 50){
-					personalMovieDB.movies[a] = b;
-					console.log('done');
-				}
-				else{
-					console.log('error');
-					i--;
-				}
-		}
-	},
+//2)
+console.log(typeof(null + ''));
 
-	detectPersonalLevel: function(){
-		if(personalMovieDB.count < 10){
-			console.log('Too little movies.');
-		}
-		else if(personalMovieDB.count > 10 && personalMovieDB.count < 30){
-			console.log('Classic');
-		}
-		else if(personalMovieDB.count > 30){
-			console.log('You are cinemamiac');
-		}
-		else{
-			alert('error');
-		}
-	},
+const num = 5;
+console.log('http://vk.com/catalog/' + num);
 
-	showMyDB: function(hidden){
-		if(!hidden){
-			console.log(personalMovieDB);
-		}
-	},
+const finSize = 26 + 'px';
 
-	toggleVisibleMyDB: function(){
-		if(personalMovieDB.private){
-			personalMovieDB.private = false;
-		}
-		else{
-			personalMovieDB.private = true;
-		}
-	},
-	writeYourGenres: function(){
-		for(let i = 1; i < 2; i++){
-			let genres = prompt(`Tap your favorite genres through coma...`).toLowerCase();
-			if(genres == '' || genres == null){
-				console.log('You put wrong data.');
-				i--;
-			}
-			else{
-				personalMovieDB.genres = genres.split(', ');
-			}
-		}
-		personalMovieDB.genres.forEach((item, i) => {
-			console.log(`Your favorite genre ${i}, is ${item}`);
-		});
-	}
-};
+
+//To Number
+
+//1)
+console.log(typeof(Number('4')));
+
+//2)
+console.log(typeof(+'5'));
+
+//3)
+console.log(typeof(parseInt('15px', 10)));
+
+let answ = +prompt('Hello', '');
+
+
+//To boolean
+
+//To false - 0, '', null, undefinde, NaN
+
+//1)
+let switcher = null;
+
+if(switcher){
+	console.log('Working...');
+}
+
+switcher = 1;
+
+if(switcher){
+	console.log('Working...');
+}
+
+//2)
+console.log(typeof(Boolean('4')));
+
+//3)
+console.log(typeof(!!'3'));
