@@ -1,53 +1,22 @@
 "use strict";
 
-//To String
+const box = document.getElementById('box');
 
-//1)
-console.log(typeof(String(null)));
-console.log(typeof(String(4)));
+console.log(box);
 
-//2)
-console.log(typeof(null + ''));
+const buttons = document.getElementsByTagName('button')[1];
 
-const num = 5;
-console.log('http://vk.com/catalog/' + num);
+console.log(buttons);
 
-const finSize = 26 + 'px';
+const circles = document.getElementsByClassName('circle');
 
+console.log(circles);
 
-//To Number
+const hearts = document.querySelectorAll('.heart');
 
-//1)
-console.log(typeof(Number('4')));
+hearts.forEach(item => {
+	console.log(item);
+});
 
-//2)
-console.log(typeof(+'5'));
-
-//3)
-console.log(typeof(parseInt('15px', 10)));
-
-let answ = +prompt('Hello', '');
-
-
-//To boolean
-
-//To false - 0, '', null, undefinde, NaN
-
-//1)
-let switcher = null;
-
-if(switcher){
-	console.log('Working...');
-}
-
-switcher = 1;
-
-if(switcher){
-	console.log('Working...');
-}
-
-//2)
-console.log(typeof(Boolean('4')));
-
-//3)
-console.log(typeof(!!'3'));
+const oneHeart = document.querySelector('.heart');
+console.log(oneHeart);
